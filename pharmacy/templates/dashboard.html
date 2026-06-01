@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<h3>Welcome to Pharmacy Management System</h3>
+
+<p>
+    Manage Medicines, Customers, Suppliers,
+    Employees, Purchases and Sales from one place.
+</p>
+
+<br>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Medicines</h3>
+        <h1>{{ medicine_count }}</h1>
+    </div>
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Customers</h3>
+        <h1>{{ customer_count }}</h1>
+    </div>
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Suppliers</h3>
+        <h1>{{ supplier_count }}</h1>
+    </div>
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Employees</h3>
+        <h1>{{ employee_count }}</h1>
+    </div>
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Purchases</h3>
+        <h1>{{ purchase_count }}</h1>
+    </div>
+
+    <div style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px #ccc;">
+        <h3>Total Sales</h3>
+        <h1>{{ sale_count }}</h1>
+    </div>
+
+</div>
+
+{% endblock %}

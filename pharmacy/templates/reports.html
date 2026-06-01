@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Reports</h2>
+
+<table>
+    <tr>
+        <th>Module</th>
+        <th>Total Records</th>
+    </tr>
+
+    <tr>
+        <td>Medicines</td>
+        <td>{{ medicine_count }}</td>
+    </tr>
+
+    <tr>
+        <td>Customers</td>
+        <td>{{ customer_count }}</td>
+    </tr>
+
+    <tr>
+        <td>Suppliers</td>
+        <td>{{ supplier_count }}</td>
+    </tr>
+
+    <tr>
+        <td>Employees</td>
+        <td>{{ employee_count }}</td>
+    </tr>
+
+    <tr>
+        <td>Purchases</td>
+        <td>{{ purchase_count }}</td>
+    </tr>
+
+    <tr>
+        <td>Sales</td>
+        <td>{{ sale_count }}</td>
+    </tr>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pharmacy Management System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        .navbar{
+            background:#2c3e50;
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        .container{
+            display:flex;
+        }
+
+        .sidebar{
+            width:250px;
+            background:#34495e;
+            min-height:100vh;
+            padding-top:20px;
+        }
+
+        .sidebar a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+        }
+
+        .sidebar a:hover{
+            background:#1abc9c;
+        }
+
+        .content{
+            flex:1;
+            padding:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        table, th, td{
+            border:1px solid #ddd;
+        }
+
+        th, td{
+            padding:10px;
+            text-align:left;
+        }
+
+        th{
+            background:#2c3e50;
+            color:white;
+        }
+
+        .btn{
+            background:#1abc9c;
+            color:white;
+            padding:8px 15px;
+            border:none;
+            cursor:pointer;
+            text-decoration:none;
+        }
+
+        .btn:hover{
+            background:#16a085;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+    <h1>Pharmacy Management System</h1>
+
+    <p style="margin-top:8px;">
+        Welcome, {{ request.user.username }}
+    </p>
+</div>
+
+    <div class="container">
+
+        <div class="sidebar">
+
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+
+    {% if request.user.groups.all.0.name == 'Admin' %}
+        <a href="{% url 'medicines' %}">Medicines</a>
+        <a href="{% url 'customers' %}">Customers</a>
+        <a href="{% url 'suppliers' %}">Suppliers</a>
+        <a href="{% url 'employees' %}">Employees</a>
+        <a href="{% url 'purchases' %}">Purchases</a>
+        <a href="{% url 'sales' %}">Sales</a>
+        <a href="{% url 'reports' %}">Reports</a>
+    {% endif %}
+
+    {% if request.user.groups.all.0.name == 'Pharmacist' %}
+        <a href="{% url 'medicines' %}">Medicines</a>
+        <a href="{% url 'customers' %}">Customers</a>
+        <a href="{% url 'purchases' %}">Purchases</a>
+        <a href="{% url 'sales' %}">Sales</a>
+        <a href="{% url 'reports' %}">Reports</a>
+    {% endif %}
+
+    {% if request.user.groups.all.0.name == 'Cashier' %}
+        <a href="{% url 'customers' %}">Customers</a>
+        <a href="{% url 'sales' %}">Sales</a>
+    {% endif %}
+
+</div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+
+</body>
+</html>
